@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: hellohenry
+  name: hellohenry
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: hellohenry
+  template:
+    metadata:
+      labels:
+        run: hellohenry
+    spec:
+      containers:
+      - image: hellohenry
+        imagePullPolicy: Always
+        name: hellohenry
+        args: ["$(meal)"]
+        env:
+        - name: meal
+          value: HenryTheHenryHoops
+        ports:
+        - containerPort: 8080
+          protocol: TCP

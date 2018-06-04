@@ -1,0 +1,11 @@
+version: '3'
+services:
+  hellohenry:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+    - BEST=HenryHoopsThePoops
+    ports:
+    - 8080:8080
+    command: ${NAME}
